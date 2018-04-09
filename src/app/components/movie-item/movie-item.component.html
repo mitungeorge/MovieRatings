@@ -1,0 +1,25 @@
+	<img class= "img-fluid" src = "..\..\assets\{{movie.image}}">
+	<p><strong>{{ movie.title }}</strong></p>
+	<div><span id="release">{{ movie.releaseDate | date:'dd-MMM-yy'}}</span>
+	<br />	
+	<span id="rating" *ngIf="movie.rating != 0 ; else noRating">Rating {{ movie.rating }}</span>
+		<ng-template #noRating>
+    			Not Rated
+		</ng-template>
+	<br />	
+	<span *ngIf="(movie.releaseDate | date:'yyyy/mm/dd') > (today | date:'yyyy/mm/dd'); else editRating">
+		<rating [(ngModel)]="rating"
+	            [max]="5"
+	            [disabled]="true"
+	            iconClass="star-icon">
+	    </rating>
+	</span>
+	<ng-template #editRating>
+		<rating [(ngModel)]="movie.rating"
+	            [max]="5"
+	            iconClass="star-icon"
+	            (click) ="update()">
+	    </rating>
+	</ng-template>    
+	</div>
+	

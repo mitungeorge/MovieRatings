@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.star-icon {
+    color: #ddd;
+    font-size: 1.2em !important;
+    position: relative;
+}
+
+.star-icon:before {
+    color: #337ab7 !important;
+}
+
+.col-md-4{
+	padding-left: 0px !important;
+}

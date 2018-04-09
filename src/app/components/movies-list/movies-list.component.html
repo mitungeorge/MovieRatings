@@ -1,0 +1,20 @@
+<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="sort">Sort by:</label>
+			<select id="sort" class="form-control" [(ngModel)]="selected" (change)="sortMovies()">
+  				<option>Name</option>
+  				<option>Release Date</option>
+			</select>
+		</div>
+		<div class="form-group col-md-6">
+			<label for="sorttype">Sort Direction:</label>
+			<select id="sorttype" class="form-control" [(ngModel)]="sorttype" (change)="sortMovies()">
+  				<option>Ascending</option>
+  				<option>Descending</option>
+			</select>
+		</div>		
+	</div>
+<div *ngFor="let movie of movies" class= "col-md-4">
+	<app-movie-item [movie] = "movie"></app-movie-item>
+	<br />
+</div>
